@@ -127,19 +127,68 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 22px;
         }
-        .logos img {
-            height: 52px;
+        .logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(245,197,24,0.08) 0%, rgba(124,58,237,0.12) 100%);
+            border: 1px solid rgba(245,197,24,0.3);
+            border-radius: 18px;
+            padding: 12px 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(255,255,255,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+            animation: logoGlow 3s infinite ease-in-out;
+        }
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        .logo-box img {
+            height: 58px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(124,58,237,0.5));
+            filter: drop-shadow(0 2px 10px rgba(245,197,24,0.3));
+            display: block;
+            position: relative;
+            z-index: 1;
         }
-        .logos .divider {
+        .logos-vs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            flex-shrink: 0;
+        }
+        .logos-vs span {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+        .logos-vs::before,
+        .logos-vs::after {
+            content: '';
             width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, transparent, var(--border), transparent);
+            height: 14px;
+            background: linear-gradient(to bottom, transparent, rgba(245,197,24,0.4), transparent);
+        }
+        @keyframes logoGlow {
+            0%,100% { box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.08); }
+            50%      { box-shadow: 0 6px 28px rgba(245,197,24,0.15), 0 0 0 1px rgba(245,197,24,0.1), inset 0 1px 0 rgba(255,255,255,0.08); }
         }
 
         /* Heading */
@@ -338,9 +387,15 @@
     </div>
 
     <div class="logos">
-        <img src="https://ossimg.jaiclubpay.com/jaiclub/other/h5setting_20260325173216i7r4.png" alt="Jai Club">
-        <div class="divider"></div>
-        <a href="https://imgbb.com/"><img src="https://i.ibb.co/h1Dh51DL/photo-2026-04-03-21-32-27.jpg" alt="photo-2026-04-03-21-32-27" border="0" /></a>
+        <div class="logo-box">
+            <img src="https://ossimg.jaiclubpay.com/jaiclub/other/h5setting_20260325173216i7r4.png" alt="Jai Club">
+        </div>
+        <div class="logos-vs">
+            <span>✦</span>
+        </div>
+        <div class="logo-box">
+            <img src="https://i.ibb.co/h1Dh51DL/photo-2026-04-03-21-32-27.jpg" alt="Team Rajput">
+        </div>
     </div>
 
     <h1>Daily <span class="gold-word">Sureshots</span><br>&amp; Loss Recovery</h1>
